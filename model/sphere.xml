@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<SpineML xmlns="http://nineml.org/9ML/0.1">
+ <LayoutClass name="sphere">
+  <Parameter dimension="?" name="numNeurons"/>
+  <Parameter dimension="?" name="size"/>
+  <Parameter dimension="?" name="xyscale"/>
+  <Spatial>
+   <Regime name="">
+    <Transform dimension="??" type="translate" variable="x" order="4">
+     <MathInline>r*size*xyscale*cos(theta)*cos(phi)</MathInline>
+    </Transform>
+    <Transform dimension="??" type="translate" variable="y" order="5">
+     <MathInline>r*size*xyscale*sin(theta)*cos(phi)</MathInline>
+    </Transform>
+    <Transform dimension="??" type="translate" variable="z" order="6">
+     <MathInline>r*size*sin(phi)</MathInline>
+    </Transform>
+    <Transform dimension="??" type="translate" variable="r" order="1">
+     <MathInline>sqrt(sqrt(rand()))</MathInline>
+    </Transform>
+    <Transform dimension="??" type="translate" variable="theta" order="2">
+     <MathInline>rand()*2.0*3.14-3.14</MathInline>
+    </Transform>
+    <Transform dimension="??" type="translate" variable="phi" order="3">
+     <MathInline>rand()*1.0*3.14-1.57</MathInline>
+    </Transform>
+   </Regime>
+   <StateVariable dimension="?" name="x"/>
+   <StateVariable dimension="?" name="y"/>
+   <StateVariable dimension="?" name="z"/>
+   <StateVariable dimension="?" name="r"/>
+   <StateVariable dimension="?" name="theta"/>
+   <StateVariable dimension="?" name="phi"/>
+  </Spatial>
+ </LayoutClass>
+</SpineML>

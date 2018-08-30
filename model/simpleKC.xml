@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<SpineML xsi:schemaLocation="http://www.shef.ac.uk/SpineMLComponentLayer SpineMLComponentLayer.xsd" xmlns="http://www.shef.ac.uk/SpineMLComponentLayer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <ComponentClass type="neuron_body" name="simpleKC">
+  <Annotation>
+   <SpineCreator/>
+  </Annotation>
+  <Dynamics initial_regime="regime1">
+   <Regime name="regime1">
+    <OnCondition target_regime="regime1">
+     <StateAssignment variable="rep">
+      <MathInline>0.2</MathInline>
+     </StateAssignment>
+     <Trigger>
+      <MathInline>repSet>0 &amp;&amp; in-b > 0.0</MathInline>
+     </Trigger>
+    </OnCondition>
+    <OnCondition target_regime="regime1">
+     <StateAssignment variable="rep">
+      <MathInline>0</MathInline>
+     </StateAssignment>
+     <Trigger>
+      <MathInline>repSet > 0 &amp;&amp; in-b &lt;= 0.0</MathInline>
+     </Trigger>
+    </OnCondition>
+   </Regime>
+   <Alias dimension="?" name="a">
+    <MathInline>in*(1-rep*(repSet &lt; 0.00001))-b</MathInline>
+   </Alias>
+   <Alias dimension="?" name="y">
+    <MathInline>a*(a>0)</MathInline>
+   </Alias>
+   <StateVariable dimension="?" name="rep"/>
+  </Dynamics>
+  <AnalogReducePort dimension="?" name="in" reduce_op="+"/>
+  <AnalogSendPort name="y"/>
+  <AnalogReducePort dimension="?" name="repSet" reduce_op="+"/>
+  <Parameter dimension="?" name="b"/>
+ </ComponentClass>
+</SpineML>

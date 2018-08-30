@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<SpineML xsi:schemaLocation="http://www.shef.ac.uk/SpineMLComponentLayer SpineMLComponentLayer.xsd" xmlns="http://www.shef.ac.uk/SpineMLComponentLayer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <ComponentClass type="neuron_body" name="reset">
+  <Annotation>
+   <SpineCreator/>
+  </Annotation>
+  <Dynamics initial_regime="blank">
+   <Regime name="blank">
+    <OnCondition target_regime="blank">
+     <StateAssignment variable="out">
+      <MathInline>0.0</MathInline>
+     </StateAssignment>
+     <Trigger>
+      <MathInline>t>t_reset</MathInline>
+     </Trigger>
+    </OnCondition>
+    <OnCondition target_regime="blank">
+     <StateAssignment variable="out">
+      <MathInline>1</MathInline>
+     </StateAssignment>
+     <Trigger>
+      <MathInline>t>t_reset+0.11</MathInline>
+     </Trigger>
+    </OnCondition>
+   </Regime>
+   <StateVariable dimension="?" name="out"/>
+  </Dynamics>
+  <AnalogSendPort name="out"/>
+  <Parameter dimension="?" name="t_reset"/>
+ </ComponentClass>
+</SpineML>

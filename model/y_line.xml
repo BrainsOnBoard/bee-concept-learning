@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<SpineML xmlns="http://nineml.org/9ML/0.1">
+ <LayoutClass name="y_line">
+  <Parameter dimension="?" name="numNeurons"/>
+  <Spatial>
+   <Regime name="">
+    <Transform dimension="??" type="translate" variable="y" order="1">
+     <MathInline>t+floor(y/5)</MathInline>
+    </Transform>
+    <Transform dimension="??" type="translate" variable="t" order="2">
+     <MathInline>t+1</MathInline>
+    </Transform>
+   </Regime>
+   <StateVariable dimension="?" name="x"/>
+   <StateVariable dimension="?" name="y"/>
+   <StateVariable dimension="?" name="z"/>
+   <StateVariable dimension="?" name="t"/>
+  </Spatial>
+ </LayoutClass>
+</SpineML>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<SpineML xsi:schemaLocation="http://www.shef.ac.uk/SpineMLComponentLayer SpineMLComponentLayer.xsd" xmlns="http://www.shef.ac.uk/SpineMLComponentLayer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <ComponentClass type="weight_update" islearning="1" name="learning">
+  <Annotation>
+   <SpineCreator/>
+  </Annotation>
+  <Dynamics initial_regime="blank">
+   <Regime name="blank">
+    <OnCondition target_regime="blank">
+     <StateAssignment variable="w">
+      <MathInline>w + learning_rate</MathInline>
+     </StateAssignment>
+     <Trigger>
+      <MathInline>reward &lt; 0.5 &amp;&amp; reward > 0.01 &amp;&amp; in > input_threshold &amp;&amp;  randomUniform &lt; learning_scale &amp;&amp; w &lt; 0.999</MathInline>
+     </Trigger>
+    </OnCondition>
+    <OnCondition target_regime="blank">
+     <StateAssignment variable="w">
+      <MathInline>w - learning_rate_neg</MathInline>
+     </StateAssignment>
+     <Trigger>
+      <MathInline>reward &lt; 0.5 &amp;&amp; reward &lt; -0.01 &amp;&amp; in > input_threshold &amp;&amp; randomUniform &lt;  learning_scale &amp;&amp; w > 0.001</MathInline>
+     </Trigger>
+    </OnCondition>
+    <OnCondition target_regime="blank">
+     <StateAssignment variable="w">
+      <MathInline>0</MathInline>
+     </StateAssignment>
+     <Trigger>
+      <MathInline>w &lt; 0</MathInline>
+     </Trigger>
+    </OnCondition>
+   </Regime>
+   <Alias dimension="?" name="out">
+    <MathInline>in*-w*weight_scale</MathInline>
+   </Alias>
+   <StateVariable dimension="?" name="w"/>
+  </Dynamics>
+  <AnalogReducePort dimension="?" name="in" reduce_op="+"/>
+  <AnalogSendPort name="out"/>
+  <AnalogReducePort dimension="?" name="reward" post="1" reduce_op="+"/>
+  <AnalogSendPort name="w" perConn="1"/>
+  <AnalogReducePort dimension="?" name="reset" post="1" reduce_op="+"/>
+  <Parameter dimension="?" name="learning_scale"/>
+  <Parameter dimension="?" name="weight_scale"/>
+  <Parameter dimension="?" name="learning_rate"/>
+  <Parameter dimension="?" name="learning_rate_neg"/>
+  <Parameter dimension="?" name="input_threshold"/>
+ </ComponentClass>
+</SpineML>

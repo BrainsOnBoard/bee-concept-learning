@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LL:SpineML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.shef.ac.uk/SpineMLNetworkLayer" xmlns:LL="http://www.shef.ac.uk/SpineMLLowLevelNetworkLayer" xsi:schemaLocation="http://www.shef.ac.uk/SpineMLLowLevelNetworkLayer SpineMLLowLevelNetworkLayer.xsd http://www.shef.ac.uk/SpineMLNetworkLayer SpineMLNetworkLayer.xsd" name="Untitled Project">
+    <LL:Population>
+        <LL:Annotation>
+            <SpineCreator>
+                <xPos value="0"/>
+                <yPos value="0"/>
+                <animSpeed value="0.2"/>
+                <aspectRatio value="1.66667"/>
+                <colour red="21" green="35" blue="255"/>
+                <size value="1"/>
+                <tag value="8"/>
+                <x3D value="0"/>
+                <y3D value="0"/>
+                <z3D value="-30"/>
+                <is_visualised value="1"/>
+            </SpineCreator>
+        </LL:Annotation>
+        <LL:Neuron name="PN" size="144" url="passthroughNB.xml"/>
+        <Layout url="sphere.xml" seed="123" minimum_distance="0">
+            <Property name="numNeurons" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="size" dimension="?">
+                <FixedValue value="5"/>
+            </Property>
+            <Property name="xyscale" dimension="?">
+                <FixedValue value="2"/>
+            </Property>
+            <Property name="x" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="y" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="z" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="r" dimension="?">
+                <FixedValue value="10"/>
+            </Property>
+            <Property name="theta" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="phi" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+        </Layout>
+        <LL:Projection dst_population="KC">
+            <LL:Annotation>
+                <SpineCreator>
+                    <DrawOptions style="4" showlabel="0"/>
+                    <start x="-0.0529629" y="-0.5"/>
+                    <curves>
+                        <curve>
+                            <C1 xpos="-0.0529629" ypos="-1.24127"/>
+                            <C2 xpos="-0.205979" ypos="-1.24139"/>
+                            <end xpos="-0.205979" ypos="-1.74963"/>
+                        </curve>
+                    </curves>
+                </SpineCreator>
+            </LL:Annotation>
+            <LL:Synapse>
+                <FixedProbabilityConnection probability="0.02" seed="123">
+                    <Delay dimension="ms">
+                        <FixedValue value="0.2"/>
+                    </Delay>
+                </FixedProbabilityConnection>
+                <LL:WeightUpdate name="PN to KC Synapse 0 weight_update" url="static_weight.xml" input_src_port="out" input_dst_port="in">
+                    <Property name="w" dimension="?">
+                        <FixedValue value="1"/>
+                    </Property>
+                </LL:WeightUpdate>
+                <LL:PostSynapse name="PN to KC Synapse 0 postsynapse" url="passthroughPS.xml" input_src_port="out" input_dst_port="in" output_src_port="out" output_dst_port="in"/>
+            </LL:Synapse>
+        </LL:Projection>
+    </LL:Population>
+    <LL:Population>
+        <LL:Annotation>
+            <SpineCreator>
+                <xPos value="-0.267209"/>
+                <yPos value="-2.2495"/>
+                <animSpeed value="0.2"/>
+                <aspectRatio value="1.66667"/>
+                <colour red="255" green="8" blue="14"/>
+                <size value="1"/>
+                <tag value="9"/>
+                <x3D value="0"/>
+                <y3D value="0"/>
+                <z3D value="0"/>
+                <is_visualised value="1"/>
+            </SpineCreator>
+        </LL:Annotation>
+        <LL:Neuron name="KC" size="5000" url="simpleKC.xml">
+            <Property name="b" dimension="?">
+                <FixedValue value="1.2"/>
+            </Property>
+            <Property name="rep" dimension="?"/>
+            <LL:Input src="trialResetKC" src_port="y" dst_port="repSet">
+                <LL:Annotation>
+                    <SpineCreator>
+                        <start x="-1.21215" y="-1.70393"/>
+                        <curves>
+                            <curve>
+                                <C1 xpos="-1.15635" ypos="-1.73615"/>
+                                <C2 xpos="-1.15635" ypos="-1.73615"/>
+                                <end xpos="-1.10054" ypos="-1.76837"/>
+                            </curve>
+                        </curves>
+                    </SpineCreator>
+                </LL:Annotation>
+                <AllToAllConnection>
+                    <Delay dimension="ms">
+                        <FixedValue value="0"/>
+                    </Delay>
+                </AllToAllConnection>
+            </LL:Input>
+        </LL:Neuron>
+        <Layout url="sphere.xml" seed="123" minimum_distance="0">
+            <Property name="numNeurons" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="size" dimension="?">
+                <FixedValue value="10"/>
+            </Property>
+            <Property name="xyscale" dimension="?">
+                <FixedValue value="3"/>
+            </Property>
+            <Property name="x" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="y" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="z" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="r" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="theta" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="phi" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+        </Layout>
+        <LL:Projection dst_population="EN">
+            <LL:Annotation>
+                <SpineCreator>
+                    <DrawOptions style="4" showlabel="0"/>
+                    <start x="-0.417747" y="-2.74961"/>
+                    <curves>
+                        <curve>
+                            <C1 xpos="-0.417747" ypos="-3.38633"/>
+                            <C2 xpos="-1.0282" ypos="-3.38622"/>
+                            <end xpos="-1.0282" ypos="-3.88526"/>
+                        </curve>
+                    </curves>
+                </SpineCreator>
+            </LL:Annotation>
+            <LL:Synapse>
+                <ConnectionList>
+                    <LL:Annotation>
+                        <SpineCreator>
+                            <Script text="#!/usr/bin/python&#10;&#10;#PARNAME=p_conn_ext #LOC=1,1&#10;#PARNAME=p_conn_ret #LOC=2,1&#10;#PARNAME=n_ext #LOC=3,1&#10;#HASWEIGHT&#10;&#10;def connectionFunc( srclocs, dstlocs, p_ext, p_ret, n_ext):&#10;&#10;&#9;import math&#10;&#9;import random&#10;&#10;&#9;i = 0&#10;&#9;out = []&#10;&#9;for srcloc in srclocs:&#10;&#9;&#9;j = 0&#10;&#9;&#9;for dstloc in dstlocs:&#10;&#9;&#9;&#9;if j &lt; n_ext / 2:&#10;&#9;&#9;&#9;&#9;if random.random() &lt; p_ext:&#10;&#9;&#9;&#9;&#9;&#9;conn = (i,j,0,1)&#10;&#9;&#9;&#9;&#9;else:&#10;&#9;&#9;&#9;&#9;&#9;conn = (i,j,0,0)&#10;&#9;&#9;&#9;else:&#10;&#9;&#9;&#9;&#9;if random.random() &lt; p_ret:&#10;&#9;&#9;&#9;&#9;&#9;conn = (i,j,0,1)&#10;&#9;&#9;&#9;&#9;else:&#10;&#9;&#9;&#9;&#9;&#9;conn = (i,j,0,0)&#10;&#9;&#9;&#9;out.append(conn)&#10;&#9;&#9;&#9;j = j + 1&#10;&#9;&#9;i = i+1&#10;&#9;return out" name="baz" p_conn_ext="0.5" p_conn_ret="0.5" n_ext="8"/>
+                            <Config/>
+                        </SpineCreator>
+                    </LL:Annotation>
+                    <BinaryFile file_name="conn_KC_to_EN_syn0.bin" num_connections="40000" explicit_delay_flag="0" packed_data="true"/>
+                    <Delay dimension="ms">
+                        <FixedValue value="0.1"/>
+                    </Delay>
+                </ConnectionList>
+                <LL:WeightUpdate name="KC to EN Synapse 0 weight_update" url="learning.xml" input_src_port="y" input_dst_port="in">
+                    <Property name="learning_scale" dimension="?">
+                        <FixedValue value="0.1"/>
+                    </Property>
+                    <Property name="weight_scale" dimension="?">
+                        <FixedValue value="-1"/>
+                    </Property>
+                    <Property name="learning_rate" dimension="?">
+                        <FixedValue value="0.04"/>
+                    </Property>
+                    <Property name="learning_rate_neg" dimension="?">
+                        <FixedValue value="0.08"/>
+                    </Property>
+                    <Property name="input_threshold" dimension="?">
+                        <FixedValue value="0"/>
+                    </Property>
+                    <Property name="w" dimension="?">
+                        <UniformDistribution minimum="0" maximum="1" seed="123"/>
+                    </Property>
+                    <LL:Input src="reward" src_port="out" dst_port="reward">
+                        <LL:Annotation>
+                            <SpineCreator>
+                                <start x="-3.80073" y="-3.13765"/>
+                                <curves>
+                                    <curve>
+                                        <C1 xpos="-2.13599" ypos="-2.97548"/>
+                                        <C2 xpos="-1.67833" ypos="-3.2411"/>
+                                        <end xpos="-1.0282" ypos="-3.88526"/>
+                                    </curve>
+                                </curves>
+                            </SpineCreator>
+                        </LL:Annotation>
+                        <OneToOneConnection>
+                            <Delay dimension="ms">
+                                <FixedValue value="0"/>
+                            </Delay>
+                        </OneToOneConnection>
+                    </LL:Input>
+                </LL:WeightUpdate>
+                <LL:PostSynapse name="KC to EN Synapse 0 postsynapse" url="passthroughPS.xml" input_src_port="out" input_dst_port="in" output_src_port="out" output_dst_port="in"/>
+            </LL:Synapse>
+        </LL:Projection>
+        <LL:Projection dst_population="num_active_KC">
+            <LL:Annotation>
+                <SpineCreator>
+                    <DrawOptions style="4" showlabel="0"/>
+                    <start x="0.566126" y="-2.20329"/>
+                    <curves>
+                        <curve>
+                            <C1 xpos="1.0311" ypos="-2.20329"/>
+                            <C2 xpos="1.0311" ypos="-2.2112"/>
+                            <end xpos="1.06914" ypos="-2.2112"/>
+                        </curve>
+                    </curves>
+                </SpineCreator>
+            </LL:Annotation>
+            <LL:Synapse>
+                <AllToAllConnection>
+                    <Delay dimension="ms">
+                        <FixedValue value="0"/>
+                    </Delay>
+                </AllToAllConnection>
+                <LL:WeightUpdate name="KC to num_active_KC Synapse 0 weight_update" url="isActive.xml" input_src_port="y" input_dst_port="in"/>
+                <LL:PostSynapse name="KC to num_active_KC Synapse 0 postsynapse" url="passthroughPS.xml" input_src_port="out" input_dst_port="in" output_src_port="out" output_dst_port="in"/>
+            </LL:Synapse>
+        </LL:Projection>
+    </LL:Population>
+    <LL:Population>
+        <LL:Annotation>
+            <SpineCreator>
+                <xPos value="-1.29695"/>
+                <yPos value="-4.38526"/>
+                <animSpeed value="0.2"/>
+                <aspectRatio value="1.66667"/>
+                <colour red="15" green="255" blue="32"/>
+                <size value="1"/>
+                <tag value="10"/>
+                <x3D value="0"/>
+                <y3D value="-4"/>
+                <z3D value="30"/>
+                <is_visualised value="1"/>
+            </SpineCreator>
+        </LL:Annotation>
+        <LL:Neuron name="EN" size="8" url="simpleinh.xml">
+            <Property name="N_ext" dimension="?">
+                <FixedValue value="8"/>
+            </Property>
+            <LL:Input src="EN" src_port="a_in" dst_port="a">
+                <LL:Annotation>
+                    <SpineCreator>
+                        <start x="-0.796948" y="-3.88526"/>
+                        <curves>
+                            <curve>
+                                <C1 xpos="-0.296947" ypos="-3.38526"/>
+                                <C2 xpos="-1.87627" ypos="-3.11074"/>
+                                <end xpos="-1.52422" ypos="-3.88526"/>
+                            </curve>
+                        </curves>
+                    </SpineCreator>
+                </LL:Annotation>
+                <OneToOneConnection>
+                    <Delay dimension="ms">
+                        <FixedValue value="0"/>
+                    </Delay>
+                </OneToOneConnection>
+            </LL:Input>
+        </LL:Neuron>
+        <Layout url="y_line.xml" seed="123" minimum_distance="0">
+            <Property name="numNeurons" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="x" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="y" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="z" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="t" dimension="?">
+                <FixedValue value="2"/>
+            </Property>
+        </Layout>
+    </LL:Population>
+    <LL:Population>
+        <LL:Annotation>
+            <SpineCreator>
+                <xPos value="-4.63406"/>
+                <yPos value="-2.91859"/>
+                <animSpeed value="0.2"/>
+                <aspectRatio value="1.66667"/>
+                <colour red="255" green="23" blue="230"/>
+                <size value="1"/>
+                <tag value="14"/>
+                <x3D value="0"/>
+                <y3D value="0"/>
+                <z3D value="0"/>
+                <is_visualised value="0"/>
+            </SpineCreator>
+        </LL:Annotation>
+        <LL:Neuron name="reward" size="8" url="passthroughNB.xml"/>
+        <Layout url="none.xml" seed="123" minimum_distance="0"/>
+    </LL:Population>
+    <LL:Population>
+        <LL:Annotation>
+            <SpineCreator>
+                <xPos value="1.7732"/>
+                <yPos value="-3.58435"/>
+                <animSpeed value="0.2"/>
+                <aspectRatio value="1.66667"/>
+                <colour red="0" green="0" blue="0"/>
+                <size value="1"/>
+                <tag value="15"/>
+                <x3D value="0"/>
+                <y3D value="0"/>
+                <z3D value="0"/>
+                <is_visualised value="0"/>
+            </SpineCreator>
+        </LL:Annotation>
+        <LL:Neuron name="sumKC" size="1" url="passthroughNB.xml">
+            <LL:Input src="KC" src_port="y" dst_port="in">
+                <LL:Annotation>
+                    <SpineCreator>
+                        <start x="0.497076" y="-2.74959"/>
+                        <curves>
+                            <curve>
+                                <C1 xpos="0.752994" ypos="-2.91701"/>
+                                <C2 xpos="0.752994" ypos="-2.91693"/>
+                                <end xpos="1.00891" ypos="-3.08435"/>
+                            </curve>
+                        </curves>
+                    </SpineCreator>
+                </LL:Annotation>
+                <AllToAllConnection>
+                    <Delay dimension="ms">
+                        <FixedValue value="0"/>
+                    </Delay>
+                </AllToAllConnection>
+            </LL:Input>
+        </LL:Neuron>
+        <Layout url="none.xml" seed="123" minimum_distance="0"/>
+    </LL:Population>
+    <LL:Population>
+        <LL:Annotation>
+            <SpineCreator>
+                <xPos value="-3.67369"/>
+                <yPos value="-0.0974225"/>
+                <animSpeed value="0.2"/>
+                <aspectRatio value="1.66667"/>
+                <colour red="0" green="0" blue="0"/>
+                <size value="1"/>
+                <tag value="17"/>
+                <x3D value="0"/>
+                <y3D value="0"/>
+                <z3D value="0"/>
+                <is_visualised value="0"/>
+            </SpineCreator>
+        </LL:Annotation>
+        <LL:Neuron name="location" size="1" url="locationNB.xml">
+            <Property name="tmp" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+        </LL:Neuron>
+        <Layout url="none.xml" seed="123" minimum_distance="0"/>
+    </LL:Population>
+    <LL:Population>
+        <LL:Annotation>
+            <SpineCreator>
+                <xPos value="1.15175"/>
+                <yPos value="-4.82"/>
+                <animSpeed value="0.2"/>
+                <aspectRatio value="1.66667"/>
+                <colour red="255" green="212" blue="6"/>
+                <size value="1"/>
+                <tag value="1"/>
+                <x3D value="0"/>
+                <y3D value="20"/>
+                <z3D value="30"/>
+                <is_visualised value="1"/>
+            </SpineCreator>
+        </LL:Annotation>
+        <LL:Neuron name="PCT" size="10" url="simpleKC.xml">
+            <Property name="b" dimension="?">
+                <ValueList>
+                    <Value index="0" value="1000"/>
+                    <Value index="1" value="1000"/>
+                    <Value index="2" value="1000"/>
+                    <Value index="3" value="1000"/>
+                    <Value index="4" value="120"/>
+                    <Value index="5" value="150"/>
+                    <Value index="6" value="150"/>
+                    <Value index="7" value="150"/>
+                    <Value index="8" value="150"/>
+                    <Value index="9" value="150"/>
+                </ValueList>
+            </Property>
+            <Property name="rep" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <LL:Input src="KC" src_port="y" dst_port="in">
+                <LL:Annotation>
+                    <SpineCreator>
+                        <start x="-0.0554551" y="-2.7495"/>
+                        <curves>
+                            <curve>
+                                <C1 xpos="0.336396" ypos="-3.67475"/>
+                                <C2 xpos="0.548226" ypos="-3.39409"/>
+                                <end xpos="0.940077" ypos="-4.31934"/>
+                            </curve>
+                        </curves>
+                    </SpineCreator>
+                </LL:Annotation>
+                <AllToAllConnection>
+                    <Delay dimension="ms">
+                        <FixedValue value="0"/>
+                    </Delay>
+                </AllToAllConnection>
+            </LL:Input>
+        </LL:Neuron>
+        <Layout url="rand3d.xml" seed="123" minimum_distance="0">
+            <Property name="numNeurons" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="size" dimension="?">
+                <FixedValue value="5"/>
+            </Property>
+            <Property name="x" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="y" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="z" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+        </Layout>
+        <LL:Projection dst_population="EN">
+            <LL:Annotation>
+                <SpineCreator>
+                    <DrawOptions style="0" showlabel="0"/>
+                    <start x="0.867225" y="-5.31939"/>
+                    <curves>
+                        <curve>
+                            <C1 xpos="0.811171" ypos="-6.0688"/>
+                            <C2 xpos="-1.09123" ypos="-6.24671"/>
+                            <end xpos="-1.05739" ypos="-4.88526"/>
+                        </curve>
+                    </curves>
+                </SpineCreator>
+            </LL:Annotation>
+            <LL:Synapse>
+                <AllToAllConnection>
+                    <Delay dimension="ms">
+                        <FixedValue value="0"/>
+                    </Delay>
+                </AllToAllConnection>
+                <LL:WeightUpdate name="PCT to EN Synapse 0 weight_update" url="learning_inh.xml" input_src_port="y" input_dst_port="in">
+                    <Property name="learning_scale" dimension="?">
+                        <FixedValue value="0.05"/>
+                    </Property>
+                    <Property name="weight_scale" dimension="?">
+                        <FixedValue value="0.5"/>
+                    </Property>
+                    <Property name="learning_rate" dimension="?">
+                        <FixedValue value="0.04"/>
+                    </Property>
+                    <Property name="learning_rate_neg" dimension="?">
+                        <FixedValue value="0.08"/>
+                    </Property>
+                    <Property name="w" dimension="?">
+                        <FixedValue value="0.5"/>
+                    </Property>
+                    <LL:Input src="reward" src_port="out" dst_port="reward">
+                        <LL:Annotation>
+                            <SpineCreator>
+                                <start x="-4.48054" y="-3.41828"/>
+                                <curves>
+                                    <curve>
+                                        <C1 xpos="-4.06002" ypos="-4.78793"/>
+                                        <C2 xpos="-3.22" ypos="-5.44"/>
+                                        <end xpos="-1.05739" ypos="-4.88526"/>
+                                    </curve>
+                                </curves>
+                            </SpineCreator>
+                        </LL:Annotation>
+                        <OneToOneConnection>
+                            <Delay dimension="ms">
+                                <FixedValue value="0"/>
+                            </Delay>
+                        </OneToOneConnection>
+                    </LL:Input>
+                    <LL:Input src="reset pop" src_port="out" dst_port="reset">
+                        <LL:Annotation>
+                            <SpineCreator>
+                                <start x="-2.00651" y="-5.98"/>
+                                <curves>
+                                    <curve>
+                                        <C1 xpos="-1.74869" ypos="-5.68263"/>
+                                        <C2 xpos="-1.74869" ypos="-5.68263"/>
+                                        <end xpos="-1.05739" ypos="-4.88526"/>
+                                    </curve>
+                                </curves>
+                            </SpineCreator>
+                        </LL:Annotation>
+                        <AllToAllConnection>
+                            <Delay dimension="ms">
+                                <FixedValue value="0"/>
+                            </Delay>
+                        </AllToAllConnection>
+                    </LL:Input>
+                </LL:WeightUpdate>
+                <LL:PostSynapse name="PCT to EN Synapse 0 postsynapse" url="passthroughPS.xml" input_src_port="out" input_dst_port="in" output_src_port="out" output_dst_port="in"/>
+            </LL:Synapse>
+        </LL:Projection>
+        <LL:Projection dst_population="KC">
+            <LL:Annotation>
+                <SpineCreator>
+                    <DrawOptions style="0" showlabel="0"/>
+                    <start x="0.726636" y="-4.32"/>
+                    <curves>
+                        <curve>
+                            <C1 xpos="0.564976" ypos="-3.62976"/>
+                            <C2 xpos="-0.127546" ypos="-3.35982"/>
+                            <end xpos="-0.204316" ypos="-2.7495"/>
+                        </curve>
+                    </curves>
+                </SpineCreator>
+            </LL:Annotation>
+            <LL:Synapse>
+                <AllToAllConnection>
+                    <Delay dimension="ms">
+                        <FixedValue value="1"/>
+                    </Delay>
+                </AllToAllConnection>
+                <LL:WeightUpdate name="PCT to KC Synapse 0 weight_update" url="static_weight.xml" input_src_port="y" input_dst_port="in">
+                    <Property name="w" dimension="?">
+                        <FixedValue value="-1"/>
+                    </Property>
+                </LL:WeightUpdate>
+                <LL:PostSynapse name="PCT to KC Synapse 0 postsynapse" url="passthroughPS.xml" input_src_port="out" input_dst_port="in" output_src_port="out" output_dst_port="in"/>
+            </LL:Synapse>
+        </LL:Projection>
+    </LL:Population>
+    <LL:Population>
+        <LL:Annotation>
+            <SpineCreator>
+                <xPos value="-2.44"/>
+                <yPos value="-6.48"/>
+                <animSpeed value="0.2"/>
+                <aspectRatio value="1.66667"/>
+                <colour red="0" green="0" blue="0"/>
+                <size value="1"/>
+                <tag value="2"/>
+                <x3D value="0"/>
+                <y3D value="0"/>
+                <z3D value="0"/>
+                <is_visualised value="0"/>
+            </SpineCreator>
+        </LL:Annotation>
+        <LL:Neuron name="reset pop" size="1" url="reset.xml">
+            <Property name="t_reset" dimension="?">
+                <FixedValue value="100000"/>
+            </Property>
+            <Property name="out" dimension="?">
+                <FixedValue value="1"/>
+            </Property>
+        </LL:Neuron>
+        <Layout url="none.xml" seed="123" minimum_distance="0"/>
+    </LL:Population>
+    <LL:Population>
+        <LL:Annotation>
+            <SpineCreator>
+                <xPos value="1.90247"/>
+                <yPos value="-2.2243"/>
+                <animSpeed value="0.2"/>
+                <aspectRatio value="1.66667"/>
+                <colour red="0" green="0" blue="0"/>
+                <size value="1"/>
+                <tag value="2"/>
+                <x3D value="0"/>
+                <y3D value="0"/>
+                <z3D value="0"/>
+                <is_visualised value="0"/>
+            </SpineCreator>
+        </LL:Annotation>
+        <LL:Neuron name="num_active_KC" size="1" url="passthroughNB.xml"/>
+        <Layout url="none.xml" seed="123" minimum_distance="0"/>
+    </LL:Population>
+    <LL:Population>
+        <LL:Annotation>
+            <SpineCreator>
+                <xPos value="-2.04548"/>
+                <yPos value="-1.2228"/>
+                <animSpeed value="0.2"/>
+                <aspectRatio value="1.66667"/>
+                <colour red="0" green="0" blue="0"/>
+                <size value="1"/>
+                <tag value="4"/>
+                <x3D value="0"/>
+                <y3D value="0"/>
+                <z3D value="0"/>
+                <is_visualised value="0"/>
+            </SpineCreator>
+        </LL:Annotation>
+        <LL:Neuron name="trialResetKC" size="1" url="simpleKC.xml">
+            <Property name="b" dimension="?">
+                <FixedValue value="0"/>
+            </Property>
+            <Property name="rep" dimension="?"/>
+            <LL:Input src="PN" src_port="out" dst_port="in">
+                <LL:Annotation>
+                    <SpineCreator>
+                        <start x="-0.833335" y="-0.498171"/>
+                        <curves>
+                            <curve>
+                                <C1 xpos="-1.02274" ypos="-0.611399"/>
+                                <C2 xpos="-1.02274" ypos="-0.611399"/>
+                                <end xpos="-1.21215" ypos="-0.724628"/>
+                            </curve>
+                        </curves>
+                    </SpineCreator>
+                </LL:Annotation>
+                <ConnectionList>
+                    <Connection src_neuron="0" dst_neuron="0"/>
+                    <Delay dimension="ms">
+                        <FixedValue value="0"/>
+                    </Delay>
+                </ConnectionList>
+            </LL:Input>
+        </LL:Neuron>
+        <Layout url="none.xml" seed="123" minimum_distance="0"/>
+    </LL:Population>
+    <LL:Population>
+        <LL:Annotation>
+            <SpineCreator>
+                <xPos value="0.896667"/>
+                <yPos value="-6.99936"/>
+                <animSpeed value="0.2"/>
+                <aspectRatio value="1.66667"/>
+                <colour red="0" green="0" blue="0"/>
+                <size value="1"/>
+                <tag value="1"/>
+                <x3D value="0"/>
+                <y3D value="0"/>
+                <z3D value="0"/>
+                <is_visualised value="0"/>
+            </SpineCreator>
+        </LL:Annotation>
+        <LL:Neuron name="diff" size="1" url="simpleposneg.xml">
+            <LL:Input src="EN" src_port="y" dst_port="pos">
+                <LL:Annotation>
+                    <SpineCreator>
+                        <start x="-0.463615" y="-4.88419"/>
+                        <curves>
+                            <curve>
+                                <C1 xpos="0.166992" ypos="-5.26175"/>
+                                <C2 xpos="0.427918" ypos="-5.35874"/>
+                                <end xpos="0.75381" ypos="-6.49936"/>
+                            </curve>
+                        </curves>
+                    </SpineCreator>
+                </LL:Annotation>
+                <ConnectionList>
+                    <Connection src_neuron="0" dst_neuron="0"/>
+                    <Connection src_neuron="1" dst_neuron="0"/>
+                    <Connection src_neuron="2" dst_neuron="0"/>
+                    <Connection src_neuron="3" dst_neuron="0"/>
+                    <Delay dimension="ms">
+                        <FixedValue value="0"/>
+                    </Delay>
+                </ConnectionList>
+            </LL:Input>
+            <LL:Input src="EN" src_port="y" dst_port="neg">
+                <LL:Annotation>
+                    <SpineCreator>
+                        <start x="-0.877375" y="-4.88526"/>
+                        <curves>
+                            <curve>
+                                <C1 xpos="-0.200141" ypos="-5.69231"/>
+                                <C2 xpos="-0.200141" ypos="-5.69231"/>
+                                <end xpos="0.477092" ypos="-6.49936"/>
+                            </curve>
+                        </curves>
+                    </SpineCreator>
+                </LL:Annotation>
+                <ConnectionList>
+                    <Connection src_neuron="4" dst_neuron="0"/>
+                    <Connection src_neuron="5" dst_neuron="0"/>
+                    <Connection src_neuron="6" dst_neuron="0"/>
+                    <Connection src_neuron="7" dst_neuron="0"/>
+                    <Delay dimension="ms">
+                        <FixedValue value="0"/>
+                    </Delay>
+                </ConnectionList>
+            </LL:Input>
+        </LL:Neuron>
+        <Layout url="none.xml" seed="123" minimum_distance="0"/>
+    </LL:Population>
+</LL:SpineML>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<SpineML xsi:schemaLocation="http://www.shef.ac.uk/SpineMLComponentLayer SpineMLComponentLayer.xsd" xmlns="http://www.shef.ac.uk/SpineMLComponentLayer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <ComponentClass type="neuron_body" name="simpleinh">
+  <Annotation>
+   <SpineCreator/>
+  </Annotation>
+  <Dynamics initial_regime="regime1">
+   <Regime name="regime1"/>
+   <Alias dimension="?" name="a_in">
+    <MathInline>in</MathInline>
+   </Alias>
+   <Alias dimension="?" name="y">
+    <MathInline>(a-sum/N_ext)*((a-sum/N_ext)>0)</MathInline>
+   </Alias>
+  </Dynamics>
+  <AnalogReducePort dimension="?" name="in" reduce_op="+"/>
+  <AnalogSendPort name="y"/>
+  <AnalogReducePort dimension="?" name="sum" reduce_op="+"/>
+  <AnalogSendPort name="a_in"/>
+  <AnalogReducePort dimension="?" name="a" reduce_op="+"/>
+  <Parameter dimension="?" name="N_ext"/>
+ </ComponentClass>
+</SpineML>

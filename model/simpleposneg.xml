@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<SpineML xsi:schemaLocation="http://www.shef.ac.uk/SpineMLComponentLayer SpineMLComponentLayer.xsd" xmlns="http://www.shef.ac.uk/SpineMLComponentLayer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <ComponentClass type="neuron_body" name="simpleposneg">
+  <Annotation>
+   <SpineCreator/>
+  </Annotation>
+  <Dynamics initial_regime="regime1">
+   <Regime name="regime1"/>
+   <Alias dimension="?" name="y">
+    <MathInline>pos-neg</MathInline>
+   </Alias>
+  </Dynamics>
+  <AnalogReducePort dimension="?" name="pos" reduce_op="+"/>
+  <AnalogSendPort name="y"/>
+  <AnalogReducePort dimension="?" name="neg" reduce_op="+"/>
+ </ComponentClass>
+</SpineML>

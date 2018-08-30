@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<SpineML xsi:schemaLocation="http://www.shef.ac.uk/SpineMLComponentLayer SpineMLComponentLayer.xsd" xmlns="http://www.shef.ac.uk/SpineMLComponentLayer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <ComponentClass type="neuron_body" name="locationNB">
+  <Annotation>
+   <SpineCreator>
+    <Text key="New_State_Var_1"></Text>
+    <Text key="blank"></Text>
+   </SpineCreator>
+  </Annotation>
+  <Dynamics initial_regime="blank">
+   <Regime name="blank">
+    <OnCondition target_regime="blank">
+     <StateAssignment variable="tmp">
+      <MathInline>0</MathInline>
+     </StateAssignment>
+     <Trigger>
+      <MathInline>in > 14</MathInline>
+     </Trigger>
+    </OnCondition>
+   </Regime>
+   <Alias dimension="?" name="out">
+    <MathInline>in</MathInline>
+   </Alias>
+   <StateVariable dimension="?" name="tmp"/>
+  </Dynamics>
+  <AnalogReducePort dimension="?" name="in" reduce_op="+"/>
+  <AnalogSendPort name="out"/>
+ </ComponentClass>
+</SpineML>
