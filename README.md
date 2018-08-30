@@ -1,4 +1,4 @@
-# bee-concept-learning
+# Bee concept-learning
 A model of how honey bees learn the concept of sameness and difference
 
 ## Running the model
